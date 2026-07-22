@@ -1,0 +1,34 @@
+{
+  "clinic": {
+    "fukuoka": "3f9bd282cbfce2ae7bcc2c802067b4d5d4c7bb2b4eba3c2564a432fd4c36366f@group.calendar.google.com",
+    "ginza": "98e8578ae9464c8d0f8e37619fcb9a1a1ace9566e9ecf986c86c5f0f72d9e6da@group.calendar.google.com",
+    "ikebukuro": "ec93c8e10112a028b689eb5d4ba6678af94fdff88a85d15a6e2f2f2082183ceb@group.calendar.google.com",
+    "osaka": "6742d6407300a25041d078f63d4ed92549d4a337bad5e4c9d70264eb8a82e4ae@group.calendar.google.com",
+    "shinjuku": "ea8c151b2840dc3099479523d0a8e1e863ab5db93ab605cc71fdef268f8ef8b0@group.calendar.google.com"
+  },
+  "doctor": {
+    "arai": "fa312b63a2a0d535a137e7cdbba3ecf1680ac5c90182723d805f9e0fce0b3019@group.calendar.google.com",
+    "ayako-sakuma": "70a14c1329796edc6087146822ccd7ee11b0490aaea6cf7217e3a930708ccf97@group.calendar.google.com",
+    "hane-kazuhide": "5baf32382c6f085835ef29b8f5df24c602e737683fd3fd97e940682c88dea82f@group.calendar.google.com",
+    "hideto-kiribuchi": "ee84147563bfc0e3fb3459316e25d4e56ffafc1720d00a7184de2ac5e1a0a983@group.calendar.google.com",
+    "hiromitsu-nakamura": "9d5b7f8baad8e44c4d5a2c951860dbba31204ff1cc34b4fdaad6905d91e64512@group.calendar.google.com",
+    "inoue-mai": "622abebc27a23ba259eca7005c69bb45127b9d4256861ef24dcb543994e00b6a@group.calendar.google.com",
+    "jinghui-shen": "3c04dd0288c27b0bf0a29e54d093cc3e327a250ff0be082d0c59eb7a7f786227@group.calendar.google.com",
+    "kusumoto-takuya": "cc56667e18a6eebfd708119d2ea1231683817fd6cfb77ac085f9282eacb51b98@group.calendar.google.com",
+    "midori-hayashi": "1eb897bb704f199361883e5ed8eb6120189bbe0bb386f0422ca11731f66e9515@group.calendar.google.com",
+    "moriya": "fdd2c950b96d756c9dc979042e25084e8d3f3c5196e5bd91a4c57d81887dedea@group.calendar.google.com",
+    "nomura-naoto": "6ab5ac24e6ba4706699b253c035e5d2d7cdb68a10e1d3d60682354c15da4c339@group.calendar.google.com",
+    "ogawa-satoshi": "435d7d1275cd12f10ee0cd6bd5c9db79e9b80bcbff20cc151e0b6d682ceb5d96@group.calendar.google.com",
+    "ryo-takanashi": "88b7ce46e1dca027671b2ec1596972dbacb2d3810b803067905284ac7a265375@group.calendar.google.com",
+    "sho-kitamura": "cca0e3366a5366e14e1f6c8b63c42f0b1596b69639dae2bf6cc115f3475aea1f@group.calendar.google.com",
+    "shuhei-uozumi": "991d9cb1a778c72a0cfd0cbd19dc9dc346c965d46d040839e0c4d3744572d4e6@group.calendar.google.com",
+    "soejima-naoto": "7b39aa2aa3a93be165b42e5eef1cea7c754355150f8556dd9da8e1cb959b3236@group.calendar.google.com",
+    "tachibana-kiyomi": "da6725a8c67f8b854c59b1ba531caa7f4424761e7cc286666e449c13b6f78dd9@group.calendar.google.com",
+    "tetsu": "a3730111dd5964122eef6ce71cdd40b5f97b59ca639a564f8abf147d940c89c5@group.calendar.google.com",
+    "tominaga": "c878220e8abb0da06309f787fed2d07c5d0d9c3587db0246be65e2219609b991@group.calendar.google.com",
+    "tong-xiaoning": "b64dc8f9a53a28acfb54518828ada0cca9c5487dc404c16d8e7c4f48250a6a87@group.calendar.google.com",
+    "uekihara": "cda8036a062aa1014887ee6dd220e325915ceba908255050145c238801da7d96@group.calendar.google.com",
+    "wang-su": "0e8d5df0a3d4271161bbade3dc2b632973ee1f45fd768433108b88d069093aa0@group.calendar.google.com",
+    "yajima-aika": "006f460168424a610f67b158e580f684a42fbf56249fc791052217fa3d7664f5@group.calendar.google.com"
+  }
+}
