@@ -145,7 +145,10 @@ def main():
 
     mtime = sheet_modified_time(drive)
     state = load_state()
-    if not force and state.get("sheet_mtime") == mtime:
+    today = dt.date.today()
+    window = ["%d-%02d" % add_months(today.year, today.month, n) for n in range(3)]
+    # 月が替わると対象月(+2)が増えるので、sheet未更新でも window 変化時は走らせる
+    if not force and state.get("sheet_mtime") == mtime and state.get("window") == window:
         print(f"[skip] sheet unchanged since {mtime}")
         return
 
@@ -158,7 +161,6 @@ def main():
     assets = json.load(open(assets_path, encoding="utf-8"))
 
     import hashlib
-    today = dt.date.today()
     hashes = state.get("month_hashes", {})
     for n in range(3):  # 当月, +1, +2
         y, m = add_months(today.year, today.month, n)
@@ -182,6 +184,7 @@ def main():
 
     state["sheet_mtime"] = mtime
     state["month_hashes"] = hashes
+    state["window"] = window
     save_state(state)
     print("[done]")
 
