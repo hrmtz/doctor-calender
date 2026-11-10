@@ -57,8 +57,10 @@ CLINIC_SLUG_NAME: Dict[str, str] = {
 
 # Sheet doctor family-token (the part before "Dr") -> ec_doctors slug.
 # Family-token = raw_name.split("Dr")[0].strip(). Doctors without a profile page
-# (前田/原岡/佐藤/境/後藤) are intentionally absent → they show up in clinic
+# (前田/原岡/佐藤/境) are intentionally absent → they show up in clinic
 # calendars by display name but get no doctor calendar (no embed target).
+# 後藤 has no profile page either but gets a doctor calendar by request
+# (user 2026-08-14) — the slug is reserved for a future page.
 DOCTOR_NAME_TO_SLUG: Dict[str, str] = {
     "鉄": "tetsu",
     "守屋": "moriya",
@@ -87,6 +89,7 @@ DOCTOR_NAME_TO_SLUG: Dict[str, str] = {
     "井上": "inoue-mai",
     "野村": "nomura-naoto",
     "富永": "tominaga",
+    "後藤": "goto",
 }
 
 # Doctor rank for CLINIC-calendar ordering (user: 理事長→院長→…). Derived from
