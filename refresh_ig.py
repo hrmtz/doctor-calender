@@ -36,6 +36,8 @@ WORK = os.environ.get("IG_WORKDIR", "/home/hrmtz/doctor-calender-ig")
 STATE = os.path.join(WORK, "state.json")
 SPARSE_MIN = int(os.environ.get("IG_SPARSE_MIN", "180"))  # 月あたり総勤務エントリの下限
 CLINIC_CODES = ["銀座", "新宿", "池袋", "大阪", "福岡", "静脈", "歯科"]
+# 追加カード: 指定院の日だけ残した版 (通常カード = 出張あり)。fam -> (suffix, labels)
+DOCTOR_VARIANTS = {"佟": ("出張なし", {"静脈科"})}
 
 with open(os.path.join(HERE, "scripts", "list_shifts.py"), encoding="utf-8") as f:
     import re
@@ -132,6 +134,13 @@ def render_month(y, m, clinics, doctors, assets):
         open(os.path.join(WORK, hn), "w", encoding="utf-8").write(
             IG.build_doctor_html(fam, y, m, f"hero-{hero}.webp", a["file"], data))
         n += R.render(WORK, hn, os.path.join(outdir, f"【{fam}】{y}_{m}月.png"))
+        if fam in DOCTOR_VARIANTS:
+            suffix, keep = DOCTOR_VARIANTS[fam]
+            vdata = {d: lb for d, lb in data.items() if lb in keep}
+            hn = f"doctor_{slug}_{suffix}.html"
+            open(os.path.join(WORK, hn), "w", encoding="utf-8").write(
+                IG.build_doctor_html(fam, y, m, f"hero-{hero}.webp", a["file"], vdata))
+            n += R.render(WORK, hn, os.path.join(outdir, f"【{fam}】{y}_{m}月_{suffix}.png"))
     return outdir, n
 
 

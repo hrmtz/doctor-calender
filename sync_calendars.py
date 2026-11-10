@@ -43,6 +43,13 @@ DOCTOR_SLUGS = sorted(set(SL.DOCTOR_NAME_TO_SLUG.values()))
 CLINIC_SLUGS = ["ginza", "shinjuku", "ikebukuro", "osaka", "fukuoka"]
 
 # slug → family token (for the calendar's own title), first token that maps to it.
+# Extra doctor calendars restricted to some workplaces. The base doctor calendar
+# already shows every shift (= 出張あり); a variant keeps only the listed labels.
+# key -> (doctor slug, calendar title, allowed clinic labels)
+DOCTOR_VARIANTS = {
+    "tong-xiaoning-home": ("tong-xiaoning", "出勤(出張なし) | 佟Dr", {"静脈科"}),
+}
+
 _SLUG_TOKEN: dict = {}
 for _tok, _slug in SL.DOCTOR_NAME_TO_SLUG.items():
     _SLUG_TOKEN.setdefault(_slug, _tok)
@@ -246,6 +253,21 @@ def main():
         desired = {d.isoformat(): (d.isoformat(), "・".join(labels))
                    for d, labels in doctor_view.get(slug, {}).items()}
         sync_calendar(cal_svc, cid, desired, lo, hi, args.dry_run, f"doctor:{slug}")
+        if args.set_public and cid and not args.dry_run:
+            set_public(cal_svc, cid)
+
+    for key, (slug, title, allowed) in DOCTOR_VARIANTS.items():
+        if only and f"doctor:{key}" not in only:
+            continue
+        cid, created = ensure_calendar(cal_svc, cal_map, "doctor", key, title, args.dry_run)
+        if created:
+            print(f"  [{'DRY-' if args.dry_run else ''}CREATE] doctor:{key}")
+        desired = {}
+        for d, labels in doctor_view.get(slug, {}).items():
+            kept = [lb for lb in labels if lb in allowed]
+            if kept:
+                desired[d.isoformat()] = (d.isoformat(), "・".join(kept))
+        sync_calendar(cal_svc, cid, desired, lo, hi, args.dry_run, f"doctor:{key}")
         if args.set_public and cid and not args.dry_run:
             set_public(cal_svc, cid)
 
